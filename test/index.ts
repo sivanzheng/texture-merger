@@ -11,7 +11,7 @@ import merger from '../src/index';
     const text = document.createElement('p');
     text.innerText = 'Merging Texture ...';
     root.appendChild(text);
-    const res = await merger(urls, 0.1);
+    const res = await merger(urls, 10, 10);
     root.removeChild(text);
     for (const layout of res.layout) {
         root.appendChild(layout.image);
@@ -19,12 +19,16 @@ import merger from '../src/index';
         p.innerText = `Layout Info --> [width: ${layout.width}; height: ${layout.height}; x: ${layout.x}; y: ${layout.y};]`
         root.appendChild(p);
     }
+    const imageUrl = window.URL.createObjectURL(res.blob);
+    console.log(res.blob)
+    const image = document.createElement('img');
+    image.src = imageUrl;
     const div = document.createElement('div');
     div.style.display = 'flex';
     const b = document.createElement('b');
     b.innerText = 'After Merge: '
     div.appendChild(b);
-    div.appendChild(res.image);
+    div.appendChild(image);
     root.appendChild(div);
 })();
 

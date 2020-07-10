@@ -3,7 +3,7 @@ import Item from './Item';
 import Block from './Block';
 import layout from './layout';
 
-interface Layout {
+export interface Layout {
     image: HTMLImageElement,
     x: number,
     y: number,
@@ -48,12 +48,9 @@ export default async function merger(
     canvas.height = root.height - verticalGap;
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     mergeImages(root, ctx);
-    const dataUrl = canvas.toDataURL();
-    const resultImage = new Image();
-    resultImage.src = dataUrl;
-    await new Promise((r) => resultImage.onload = () => r()); 
+    const blob = await new Promise<Blob>((r) => canvas.toBlob((b) => r(b as Blob)));
     return {
+        blob,
         layout: resultLayout,
-        image: resultImage,
     }
 }

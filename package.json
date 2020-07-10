@@ -1,6 +1,6 @@
 {
   "name": "texture-merger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "automatically cut and compress png images, and then package all the images into a sprite image.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,17 @@
     "type": "git",
     "url": "git+https://github.com/ShiverZheng/texture-merger.git"
   },
+  "keywords": [
+    "png",
+    "image",
+    "texture merge",
+    "merge",
+    "merger",
+    "front-end",
+    "typescript",
+    "binary tree",
+    "sprite"
+  ],
   "author": "ShiverZheng",
   "license": "MIT",
   "bugs": {
