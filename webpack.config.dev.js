@@ -6,6 +6,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.worker\.ts$/,
+        use: {
+            loader: 'worker-loader',
+            options: {
+                filename: '[name].js',
+            }
+        }
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -17,6 +26,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
+    globalObject: 'this',
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist/'),
   },

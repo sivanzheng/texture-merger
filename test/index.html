@@ -12,19 +12,25 @@
     .items-container {
         margin: 0 auto;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
     }
-    .items-container div {
+    .items-container .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .items-container .item-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        margin: 10px;
-        padding: 5px 10px;
+        margin: 6px;
+        padding: 4px 4px;
         border: 1px solid #daa40c;
         border-radius: 10px;
-        min-width: 200px;
+        min-width: 175px;
     }
     .items-container p {
         display: block;
@@ -40,6 +46,7 @@
 </style>
 <body>
     <div id="main" class="main">
+        <p id="merging">Merging Texture ...</p>
         <div id="items-container" class="items-container"></div>
         <div id="app" class="merged"></div>
     </div>

@@ -31,14 +31,17 @@
   },
   "homepage": "https://github.com/ShiverZheng/texture-merger#readme",
   "devDependencies": {
+    "@types/q": "^1.5.5",
     "html-webpack-plugin": "^4.3.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "worker-loader": "^3.0.8"
   },
   "dependencies": {
-    "png-cutter": "^1.0.8"
+    "png-cutter": "^1.0.8",
+    "q": "^1.5.1"
   }
 }
