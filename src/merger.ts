@@ -16,24 +16,28 @@ let maxSideSortDefer: Q.Deferred<SortResult>;
 const maxSideSortWorker = new MaxSideSortWorker();
 maxSideSortWorker.onmessage = (event: MessageEvent) => {
     if (maxSideSortDefer) maxSideSortDefer.resolve({ key: 'Max Side', data: event.data });
+    maxSideSortWorker.terminate();
 };
 
 let areaSortDefer: Q.Deferred<SortResult>;
 const areaSortWorker = new AreaSortWorker();
 areaSortWorker.onmessage = (event: MessageEvent) => {
     if (areaSortDefer) areaSortDefer.resolve({ key: 'Area', data: event.data });
+    areaSortWorker.terminate();
 };
 
 let widthPrioritySortDefer: Q.Deferred<SortResult>;
 const widthPrioritySortWorker = new WidthPrioritySortWorker();
 widthPrioritySortWorker.onmessage = (event: MessageEvent) => {
     if (widthPrioritySortDefer) widthPrioritySortDefer.resolve({ key: 'Width Priority', data: event.data });
+    widthPrioritySortWorker.terminate();
 };
 
 let heightPrioritySortDefer: Q.Deferred<SortResult>;
 const heightPrioritySortWorker = new HeightPrioritySortWorker();
 heightPrioritySortWorker.onmessage = (event: MessageEvent) => {
     if (heightPrioritySortDefer) heightPrioritySortDefer.resolve({ key: 'Height Priority', data: event.data });
+    heightPrioritySortWorker.terminate();
 };
 
 const allWorkers = [areaSortWorker, widthPrioritySortWorker, heightPrioritySortWorker, maxSideSortWorker];

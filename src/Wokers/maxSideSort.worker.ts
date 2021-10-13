@@ -11,6 +11,7 @@ webWorker.onmessage = (event: MessageEvent) => {
 
     const root = layout(items);
     webWorker.postMessage(root);
+    self.close();
 };
 
 // Avoid mistakes like this xx.worker.ts is not a module
