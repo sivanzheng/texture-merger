@@ -1,6 +1,7 @@
 export default class Item {
     public width: number;
     public height: number;
+    public index: number;
 
     static verticalGap = 0;
     static horizontalGap = 0;
@@ -10,9 +11,12 @@ export default class Item {
     }
 
     constructor(
-        public img: HTMLImageElement,
+        width: number,
+        height: number,
+        index: number,
     ) {
-        this.width = img.width + Item.horizontalGap;
-        this.height = img.height + Item.verticalGap;
+        this.width = width + Item.horizontalGap;
+        this.height = height + Item.verticalGap;
+        this.index = index;
     }
 }

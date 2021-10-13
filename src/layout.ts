@@ -3,15 +3,18 @@ import Block from './Block';
 import searchBlock from './searchBlock';
 
 export default function layout(items: Item[]) {
-    const item = items[0];
-    let root = new Block(item.width, item.height, true, item.img);
-    for (let i = 1; i < items.length; i++) {
+    const rootItem = items[0];
+    let root = new Block(rootItem.width, rootItem.height, true, rootItem.index);
+
+    const len = items.length;
+    for (let i = 1; i < len; i++) {
         const item = items[i];
         if (!item.width || !item.height) continue;
         const block = searchBlock(root, item.width, item.height);
+        // The current canvas has an available area
         if (block) {
             block.used = true;
-            block.img = item.img;
+            block.index = item.index;
             if (block.width > item.width) {
                 block.right = new Block(block.width - item.width, item.height, false);
                 block.right.x = block.x + item.width;
@@ -24,11 +27,15 @@ export default function layout(items: Item[]) {
                 block.down.y = block.y + item.height;
             }
         } else {
+            // Not enough area
+            // Make sure to form a square as much as possible
             if (root.width > root.height) {
-                // scale down
-                const newBlock = new Block(root.width, item.height, true, item.img);
+                // Scale down
+                const newBlock = new Block(root.width, item.height, true, item.index);
                 newBlock.x = 0;
                 newBlock.y = root.height;
+
+                // 
                 if (root.width > item.width) {
                     newBlock.right = new Block(root.width - item.width, item.height, false);
                     newBlock.right.y = root.height;
@@ -43,7 +50,7 @@ export default function layout(items: Item[]) {
                 root = newRoot;
             } else {
                 // scale right
-                const newBlock = new Block(item.width, root.height, true, item.img);
+                const newBlock = new Block(item.width, root.height, true, item.index);
                 newBlock.x = root.width;
                 newBlock.y = 0;
                 if (root.height > item.height) {

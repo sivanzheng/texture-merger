@@ -5,10 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEXTURE MERGER</title>
 </head>
+<style>
+    .main {
+        display: flex;
+    }
+    .items-container {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .items-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 10px;
+        padding: 5px 10px;
+        border: 1px solid #daa40c;
+        border-radius: 10px;
+        min-width: 200px;
+    }
+    .items-container p {
+        display: block;
+    }
+    .merged {
+        min-width: 300px;
+    }
+    .merged div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+</style>
 <body>
-   <div id="app">
-
-   </div> 
+    <div id="main" class="main">
+        <div id="items-container" class="items-container"></div>
+        <div id="app" class="merged"></div>
+    </div>
 <script src="bundle.js"></script></body>
 <script>var exports = {"__esModule": true};</script>
 </html>

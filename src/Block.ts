@@ -8,6 +8,6 @@ export default class Block {
         public width: number,
         public height: number,
         public used: boolean,
-        public img?: HTMLImageElement,
+        public index?: number
     ) { }
 }
