@@ -55,12 +55,12 @@ import merger from '../src/index';
         const imageUrl = window.URL.createObjectURL(result.blob);
         const imageEl = document.createElement('img');
         imageEl.src = imageUrl;
-
+        await new Promise((r) => imageEl.onload = () => r(null));
         const divEl = document.createElement('div');
         divEl.style.display = 'flex';
 
         const labelEl = document.createElement('p');
-        labelEl.innerText = `${result.key} Merged: ${imageEl.clientWidth} * ${imageEl.clientHeight}`
+        labelEl.innerText = `${result.key} Merged: ${imageEl.width} * ${imageEl.height} = ${imageEl.width * imageEl.height} `
 
         divEl.appendChild(labelEl);
         divEl.appendChild(imageEl);
