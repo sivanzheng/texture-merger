@@ -35,7 +35,6 @@ export default function layout(items: Item[]) {
                 newBlock.x = 0;
                 newBlock.y = root.height;
 
-                // 
                 if (root.width > item.width) {
                     newBlock.right = new Block(root.width - item.width, item.height, false);
                     newBlock.right.y = root.height;
@@ -49,7 +48,7 @@ export default function layout(items: Item[]) {
                 newRoot.right = newBlock;
                 root = newRoot;
             } else {
-                // scale right
+                // Scale right
                 const newBlock = new Block(item.width, root.height, true, item.index);
                 newBlock.x = root.width;
                 newBlock.y = 0;

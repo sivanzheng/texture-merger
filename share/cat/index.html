@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat</title>
+</head>
+<style>
+.cat {
+    width: 292px;
+    height: 148px;
+    background: url(./cat.png);
+    animation-name: run;
+    animation-duration: .5s;
+    animation-timing-function: steps(5);
+    animation-iteration-count: infinite;
+}
+
+@keyframes run {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -1494px;
+    }
+}
+</style>
+<body>
+    <div class="cat"></div>
+</body>
+</html>
