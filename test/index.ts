@@ -13,7 +13,7 @@ import merger from '../src/index';
         urls = cached.split('$');
     }
     if (!urls.length) {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 10; i++) {
             const width = randomInt(10, 50);
             const height = randomInt(10, 50);
             const color = randomColor();

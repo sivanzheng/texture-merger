@@ -104,7 +104,7 @@ export default async function merger(
     }
 
     const sortResults = await Promise.all(allDefer);
-    const results: { key: string; blob: Blob; layout: Layout[]}[] = [];
+    const results: { key: string; blob: Blob; layout: Layout[] }[] = [];
     for (const sortResult of sortResults) {
         const rootBlock = sortResult.data;
         const canvas = document.createElement('canvas');
