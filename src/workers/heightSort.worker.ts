@@ -3,7 +3,7 @@ import layout from '../layout';
 import { heightPrioritySort } from '../Sort';
 
 // Main process pointer
-const webWorker: Worker = self as any; 
+const webWorker = self as any as Worker; 
 
 webWorker.onmessage = (event: MessageEvent) => { 
     const items = event.data as Item[];
@@ -13,6 +13,3 @@ webWorker.onmessage = (event: MessageEvent) => {
     webWorker.postMessage(root);
     self.close();
 };
-
-// Avoid mistakes like this xx.worker.ts is not a module
-export default null as any; 

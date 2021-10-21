@@ -2,10 +2,6 @@ import * as Q from 'q';
 import { pngCutter } from 'png-cutter';
 import Item from './Item';
 import Block from './Block';
-import AreaSortWorker from './Wokers/areaSort.worker';
-import WidthPrioritySortWorker from './Wokers/widthSort.worker';
-import HeightPrioritySortWorker from './Wokers/heightSort.worker';
-import MaxSideSortWorker from './Wokers/maxSideSort.worker';
 
 interface SortResult {
     key: string;
@@ -13,28 +9,28 @@ interface SortResult {
 }
 
 let maxSideSortDefer: Q.Deferred<SortResult>;
-const maxSideSortWorker = new MaxSideSortWorker();
+const maxSideSortWorker = new Worker(new URL('./workers/maxSideSort.worker', import.meta.url));
 maxSideSortWorker.onmessage = (event: MessageEvent) => {
     if (maxSideSortDefer) maxSideSortDefer.resolve({ key: 'Max Side', data: event.data });
     maxSideSortWorker.terminate();
 };
 
 let areaSortDefer: Q.Deferred<SortResult>;
-const areaSortWorker = new AreaSortWorker();
+const areaSortWorker = new Worker(new URL('./workers/areaSort.worker', import.meta.url));
 areaSortWorker.onmessage = (event: MessageEvent) => {
     if (areaSortDefer) areaSortDefer.resolve({ key: 'Area', data: event.data });
     areaSortWorker.terminate();
 };
 
 let widthPrioritySortDefer: Q.Deferred<SortResult>;
-const widthPrioritySortWorker = new WidthPrioritySortWorker();
+const widthPrioritySortWorker = new Worker(new URL('./workers/widthSort.worker', import.meta.url));
 widthPrioritySortWorker.onmessage = (event: MessageEvent) => {
     if (widthPrioritySortDefer) widthPrioritySortDefer.resolve({ key: 'Width Priority', data: event.data });
     widthPrioritySortWorker.terminate();
 };
 
 let heightPrioritySortDefer: Q.Deferred<SortResult>;
-const heightPrioritySortWorker = new HeightPrioritySortWorker();
+const heightPrioritySortWorker = new Worker(new URL('./workers/heightSort.worker', import.meta.url));
 heightPrioritySortWorker.onmessage = (event: MessageEvent) => {
     if (heightPrioritySortDefer) heightPrioritySortDefer.resolve({ key: 'Height Priority', data: event.data });
     heightPrioritySortWorker.terminate();
