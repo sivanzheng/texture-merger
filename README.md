@@ -1,8 +1,9 @@
 # TEXTURE-MERGER
 
-### How to use ?
+### Install 
+`npm install texture-merger`
 
-#### npm install texture-merger
+### Usage
 ```javascript
     import merger from 'texture-merger';
     /**
@@ -15,5 +16,10 @@
      */
     const merged = await merger(dataUrls, verticalGap, horizontalGap);
 ```
+### Document
 
-[Click here for demo](https://shiverzheng.github.io/texture-merger-test/dist/index.html)
+https://github.com/ShiverZheng/Share/blob/master/Sprite/README.md
+
+### Demo online
+
+https://shiverzheng.github.io/texture-merger-test/dist/index.html
