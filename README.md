@@ -18,8 +18,8 @@
 ```
 ### Document
 
-https://github.com/ShiverZheng/Share/blob/master/Sprite/README.md
+https://github.com/sivanzheng/Share/blob/master/Sprite/README.md
 
 ### Demo online
 
-https://shiverzheng.github.io/texture-merger-test/dist/index.html
+https://sivanzheng.github.io/texture-merger-test/dist/index.html
